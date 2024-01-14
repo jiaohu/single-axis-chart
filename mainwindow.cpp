@@ -11,22 +11,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // QGraphicsView *view = new QGraphicsView;
-    // QGraphicsScene *scene = new QGraphicsScene();
-    // int scale = qMin(width(), height());
-    // this->resize(scale, scale);
     LAxisChartWidget *w = new LAxisChartWidget();
-    // QGraphicsProxyWidget* proxyWidget  = scene->addWidget(w);
-
-    // Set the position of the proxy widget in the scene
-    // proxyWidget->setPos(100, 0);
-    // proxyWidget->mapRectToScene(-50, -50, 100, 100);
-
-    // qDebug()<<scene->sceneRect();
-    // view->setScene(scene);
-    // view->mapFromScene(-50, -50);
-    // view->setSceneRect(scene->sceneRect());
-    // this->setCentralWidget(view);
+    QVector<qreal> series;
+    series.append(1);
+    series.append(2);
+    series.append(3);
+    w->setValue(series);
     ui->verticalLayout->addWidget(w);
 }
 
