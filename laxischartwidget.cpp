@@ -15,12 +15,12 @@ void LAxisChartWidget::paintEvent(QPaintEvent *event)
 {
 
     QPainter *painter = new QPainter(this);
-    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
     painter->setWindow(QRect(-50, -50, 100, 100));
     // qreal width = this->width();
     // qreal height = this->height();
     painter->setBrush(Qt::white);
-    QFont font("Arial", 1);
+    QFont font("Arial", 2);
     painter->setFont(font);
     QPen pen(Qt::black);
     pen.setWidthF(0.1);
