@@ -37,7 +37,7 @@ void LAxisChartWidget::paintEvent(QPaintEvent *event)
     painter->drawLine(QPointF(-0.5, -20), QPointF(0.5, -20));
     painter->drawText(QRect(1, -11, 3, 3), "-1");
     painter->drawLine(QPointF(-0.5, -10), QPointF(0.5, -10));
-    painter->drawText(QRect(1, -1, 3, 3), "-0");
+    painter->drawText(QRect(1, -1, 3, 3), "0");
     painter->drawLine(QPointF(-0.5, 0), QPointF(0.5, 0));
     painter->drawText(QRect(1, 9, 3, 3), "1");
     painter->drawLine(QPointF(-0.5, 10), QPointF(0.5, 10));
