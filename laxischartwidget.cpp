@@ -53,7 +53,7 @@ void LAxisChartWidget::paintEvent(QPaintEvent *event)
     if (!this->series.isEmpty()) {
         QPen seriesPen(Qt::green);
         painter->setPen(seriesPen);
-        for (auto v : this->series) {
+        for (auto v : qAsConst(this->series)) {
             painter->drawEllipse(QPointF(0, v*10), 0.5, 0.5);
         }
     }
