@@ -13,43 +13,24 @@ void LAxisChartWidget::setValue(QVector<qreal> values)
 
 void LAxisChartWidget::paintEvent(QPaintEvent *event)
 {
-
+    Q_UNUSED(event)
     QPainter *painter = new QPainter(this);
     painter->setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-    painter->setWindow(QRect(-50, -50, 100, 100));
-    // qreal width = this->width();
-    // qreal height = this->height();
+    painter->setWindow(QRect(-50, -55, 100, 110));
     painter->setBrush(Qt::white);
     QFont font("Arial", 2);
     painter->setFont(font);
     QPen pen(Qt::black);
     pen.setWidthF(0.1);
     painter->setPen(pen);
-    painter->drawRect(QRect(-5, -50, 10, 100));
+    painter->drawRect(QRect(-5, -55, 10, 110));
     painter->drawLine(0, -50, 0, 50);
-    painter->drawText(QRect(0, -50, 10, 10), "-L");
-    painter->drawLine(QPointF(-0.5, -50), QPointF(0.5, -50));
-    painter->drawText(QRect(1, -41, 3, 3), "-4");
-    painter->drawLine(QPointF(-0.5, -40), QPointF(0.5, -40));
-    painter->drawText(QRect(1, -31, 3, 3), "-3");
-    painter->drawLine(QPointF(-0.5, -30), QPointF(0.5, -30));
-    painter->drawText(QRect(1, -21, 3, 3), "-2");
-    painter->drawLine(QPointF(-0.5, -20), QPointF(0.5, -20));
-    painter->drawText(QRect(1, -11, 3, 3), "-1");
-    painter->drawLine(QPointF(-0.5, -10), QPointF(0.5, -10));
-    painter->drawText(QRect(1, -1, 3, 3), "0");
-    painter->drawLine(QPointF(-0.5, 0), QPointF(0.5, 0));
-    painter->drawText(QRect(1, 9, 3, 3), "1");
-    painter->drawLine(QPointF(-0.5, 10), QPointF(0.5, 10));
-    painter->drawText(QRect(1, 19, 3, 3), "2");
-    painter->drawLine(QPointF(-0.5, 20), QPointF(0.5, 20));
-    painter->drawText(QRect(1, 29, 3, 3), "3");
-    painter->drawLine(QPointF(-0.5, 30), QPointF(0.5, 30));
-    painter->drawText(QRect(1, 39, 3, 3), "4");
-    painter->drawLine(QPointF(-0.5, 40), QPointF(0.5, 40));
-    painter->drawText(QRect(1, 49, 3, 3), "5");
-    painter->drawLine(QPointF(-0.5, 50), QPointF(0.5, 50));
-    painter->drawText(QRect(0, 45, 10, 5), "+L");
+    painter->drawText(QRect(-5, -50, 10, 5), "-L");
+    for (int i = -5; i <= 5; i ++) {
+        painter->drawLine(QPointF(-0.5, i * 10), QPointF(0.5, i * 10));
+        painter->drawText(QRect(1, i * 10, 3, 3), QString("%1").arg(-i));
+    }
+    painter->drawText(QRect(-5, 50, 10, 5), "+L");
     if (!this->series.isEmpty()) {
         QPen seriesPen(Qt::green);
         painter->setPen(seriesPen);
